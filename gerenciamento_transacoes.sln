@@ -14,6 +14,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gerenciamento_transacoes.Application", "gerenciamento_transacoes.Application\gerenciamento_transacoes.Application.csproj", "{E80A9B2F-3C26-4409-9E00-DBC4DC32FC10}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gerenciamento_transacoes.Persistence", "gerenciamento_transacoes.Persistence\gerenciamento_transacoes.Persistence.csproj", "{D0CA5B6E-AA47-46A2-A89B-6ECCD8F10615}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E80A9B2F-3C26-4409-9E00-DBC4DC32FC10} = {E80A9B2F-3C26-4409-9E00-DBC4DC32FC10}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gerenciamento_transacoes.API", "gerenciamento_transacoes.API\gerenciamento_transacoes.API.csproj", "{C80EC7EB-0CE2-443A-8410-2709EE79DB5E}"
 EndProject
