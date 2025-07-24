@@ -1,4 +1,5 @@
 ﻿using gerenciamento_transacoes.API.Controllers.Base;
+using gerenciamento_transacoes.Application.Features.Add;
 using gerenciamento_transacoes.Application.Features.Get;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -23,6 +24,19 @@ namespace gerenciamento_transacoes.API.Controllers
 
             } catch (Exception erro) 
             {
+                return BadRequest(erro.Message);
+            }
+        }
+
+        [HttpPost]
+        public async Task<ActionResult<AddTransactionResponse>> Create([FromBody] AddTransactionRequest req, CancellationToken cancellationToken)
+        {
+            try
+            {
+                var response = await _mediator.Send(req, cancellationToken);
+                return Ok(response);
+            } catch (Exception erro) 
+            { 
                 return BadRequest(erro.Message);
             }
             

@@ -18,5 +18,10 @@ namespace gerenciamento_transacoes.Persistence.Repository
         {
             return await _context.Set<T>().ToListAsync(cancellationToken);
         }
+
+        public async Task Create(T entity, CancellationToken cancellationToken)
+        {
+            await _context.Set<T>().AddAsync(entity, cancellationToken);
+        }
     }
 }
