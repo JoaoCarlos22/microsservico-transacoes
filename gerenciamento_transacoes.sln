@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.36310.24
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{02EA681E-C7D8-13C7-8484-4AC65E1B71E8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastructure", "Infrastructure", "{D68ABE5C-F687-4B87-94A5-136C670EEBDF}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{1C0A996A-B68F-4AD7-89EE-45390B32A803}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gerenciamento_transacoes.Domain", "gerenciamento_transacoes.Domain\gerenciamento_transacoes.Domain.csproj", "{708E891C-9A52-47E9-90A5-9DD2BBCE8A56}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gerenciamento_transacoes.Application", "gerenciamento_transacoes.Application\gerenciamento_transacoes.Application.csproj", "{E80A9B2F-3C26-4409-9E00-DBC4DC32FC10}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gerenciamento_transacoes.Persistence", "gerenciamento_transacoes.Persistence\gerenciamento_transacoes.Persistence.csproj", "{D0CA5B6E-AA47-46A2-A89B-6ECCD8F10615}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gerenciamento_transacoes.API", "gerenciamento_transacoes.API\gerenciamento_transacoes.API.csproj", "{C80EC7EB-0CE2-443A-8410-2709EE79DB5E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{708E891C-9A52-47E9-90A5-9DD2BBCE8A56}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{708E891C-9A52-47E9-90A5-9DD2BBCE8A56}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{708E891C-9A52-47E9-90A5-9DD2BBCE8A56}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{708E891C-9A52-47E9-90A5-9DD2BBCE8A56}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E80A9B2F-3C26-4409-9E00-DBC4DC32FC10}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E80A9B2F-3C26-4409-9E00-DBC4DC32FC10}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E80A9B2F-3C26-4409-9E00-DBC4DC32FC10}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E80A9B2F-3C26-4409-9E00-DBC4DC32FC10}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D0CA5B6E-AA47-46A2-A89B-6ECCD8F10615}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D0CA5B6E-AA47-46A2-A89B-6ECCD8F10615}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D0CA5B6E-AA47-46A2-A89B-6ECCD8F10615}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D0CA5B6E-AA47-46A2-A89B-6ECCD8F10615}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C80EC7EB-0CE2-443A-8410-2709EE79DB5E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C80EC7EB-0CE2-443A-8410-2709EE79DB5E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C80EC7EB-0CE2-443A-8410-2709EE79DB5E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C80EC7EB-0CE2-443A-8410-2709EE79DB5E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{708E891C-9A52-47E9-90A5-9DD2BBCE8A56} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{E80A9B2F-3C26-4409-9E00-DBC4DC32FC10} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D0CA5B6E-AA47-46A2-A89B-6ECCD8F10615} = {D68ABE5C-F687-4B87-94A5-136C670EEBDF}
+		{C80EC7EB-0CE2-443A-8410-2709EE79DB5E} = {1C0A996A-B68F-4AD7-89EE-45390B32A803}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B2F745EA-56BD-43DE-AFFD-D901C1BF2DFF}
+	EndGlobalSection
+EndGlobal
