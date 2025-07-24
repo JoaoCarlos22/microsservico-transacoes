@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+	  <UserSecretsId>afed9221-c683-4133-b7f8-73f2b00de260</UserSecretsId>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="13.0.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\gerenciamento_transacoes.Application\gerenciamento_transacoes.Application.csproj" />
+    <ProjectReference Include="..\gerenciamento_transacoes.Persistence\gerenciamento_transacoes.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>
