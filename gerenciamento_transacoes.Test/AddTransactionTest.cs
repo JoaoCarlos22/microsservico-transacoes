@@ -20,6 +20,7 @@ namespace gerenciamento_transacoes.Test
             // Simulação dos valores
             var request = new AddTransactionRequest(
                 Value: 100.0,
+                Description: "test",
                 NameSender: "joca",
                 NameReceiver: "bala",
                 Date: DateTime.UtcNow

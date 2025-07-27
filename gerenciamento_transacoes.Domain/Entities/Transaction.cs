@@ -8,6 +8,9 @@ namespace gerenciamento_transacoes.Domain.Entities
         [BsonElement("value")]
         public double Value { get; set; }
 
+        [BsonElement("description")]
+        public string Description { get; set; }
+
         [BsonElement("nameSender")]
         public string NameSender { get; set; }
 

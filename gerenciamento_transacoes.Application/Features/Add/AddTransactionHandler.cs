@@ -45,6 +45,7 @@ namespace gerenciamento_transacoes.Application.Features.Add
             {
                 Id = transaction.Id,
                 Value = transaction.Value,
+                Description = transaction.Description,
                 NameReceiver = transaction.NameReceiver,
                 NameSender = transaction.NameSender,
                 DateOnly = transaction.Date

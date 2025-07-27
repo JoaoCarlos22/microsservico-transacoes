@@ -50,6 +50,7 @@ namespace gerenciamento_transacoes.Test
             {
                 Id = ObjectId.GenerateNewId().ToString(),
                 Value = value,
+                Description = "test",
                 NameSender = nameSender,
                 NameReceiver = nameReceiver,
                 Date = DateTime.UtcNow,
@@ -63,6 +64,7 @@ namespace gerenciamento_transacoes.Test
             {
                 Id = transaction.Id,
                 Value = transaction.Value,
+                Description = transaction.Description,
                 NameReceiver = transaction.NameReceiver,
                 NameSender = transaction.NameSender,
                 Date = transaction.Date,
