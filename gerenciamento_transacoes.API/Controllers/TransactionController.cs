@@ -29,7 +29,7 @@ namespace gerenciamento_transacoes.API.Controllers
         }
 
         [HttpPost]
-        public async Task<ActionResult<AddTransactionResponse>> Create([FromBody] AddTransactionRequest req, CancellationToken cancellationToken)
+        public async Task<ActionResult<string>> Create([FromBody] AddTransactionRequest req, CancellationToken cancellationToken)
         {
             try
             {

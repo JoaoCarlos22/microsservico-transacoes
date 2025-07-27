@@ -7,5 +7,5 @@ namespace gerenciamento_transacoes.Application.Features.Add
         string Description,
         string NameSender,
         string NameReceiver,
-        DateTime Date) : IRequest<AddTransactionResponse>;
+        DateTime Date) : IRequest<string>;
 }

@@ -9,7 +9,7 @@ using MongoDB.Bson;
 
 namespace gerenciamento_transacoes.Application.Features.Add
 {
-    public sealed class AddTransactionHandler : IRequestHandler<AddTransactionRequest, AddTransactionResponse>
+    public sealed class AddTransactionHandler : IRequestHandler<AddTransactionRequest, string>
     {
         private readonly IUnitOfWork _unitOfWork;
         private readonly ITransactionsRepository _transactionRepository;
@@ -28,35 +28,39 @@ namespace gerenciamento_transacoes.Application.Features.Add
             _messageProducer = messageProducer;
         }
 
-        public async Task<AddTransactionResponse> Handle(AddTransactionRequest req, CancellationToken cancellationToken)
+        public async Task<string> Handle(AddTransactionRequest req, CancellationToken cancellationToken)
         {
-            // persistencia da transicao no BD
-            var transaction = _mapper.Map<Transaction>(req);
-            if (string.IsNullOrEmpty(transaction.Id))
+            try
             {
-                transaction.Id = ObjectId.GenerateNewId().ToString();
+                // persistencia da transicao no BD
+                var transaction = _mapper.Map<Transaction>(req);
+                if (string.IsNullOrEmpty(transaction.Id))
+                {
+                    transaction.Id = ObjectId.GenerateNewId().ToString();
+                }
+                await _transactionRepository.Create(transaction, cancellationToken);
+                await _unitOfWork.SaveChanges(cancellationToken);
+
+                // envio da mensagem ServiceBus
+                var queueName = _configuration["AzureServiceBus:QueueName"];
+                var messageContent = System.Text.Json.JsonSerializer.Serialize(new TransactionDto
+                {
+                    Id = transaction.Id,
+                    Value = transaction.Value,
+                    Description = transaction.Description,
+                    NameReceiver = transaction.NameReceiver,
+                    NameSender = transaction.NameSender,
+                    DateOnly = transaction.Date
+                });
+
+                await _messageProducer.SendMessage(queueName, messageContent, cancellationToken);
+
+                return "Transação efetuada com sucesso!";
+            } catch (Exception erro)
+            {
+                return $"Erro ao criar a transação/enviar mensagem! - Erro: {erro.Message}";
             }
-            await _transactionRepository.Create(transaction, cancellationToken);
-            await _unitOfWork.SaveChanges(cancellationToken);
-
-            // envio da mensagem ServiceBus
-            var queueName = _configuration["AzureServiceBus:QueueName"];
-            var messageContent = System.Text.Json.JsonSerializer.Serialize(new TransactionDto
-            {
-                Id = transaction.Id,
-                Value = transaction.Value,
-                Description = transaction.Description,
-                NameReceiver = transaction.NameReceiver,
-                NameSender = transaction.NameSender,
-                DateOnly = transaction.Date
-            });
-
-            await _messageProducer.SendMessage(queueName, messageContent, cancellationToken);
-
-            return new AddTransactionResponse
-            {
-                Id = transaction.Id
-            };
+            
         }
     }
 }
